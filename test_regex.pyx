@@ -1,10 +1,8 @@
-from libcpp.string import string
-from libcpp.regex import regex
+#distutils language=c++
+from libcpp.string cimport string
+cdef extern from "regex_.h":
+    cdef string find_keyword(string,string)
 
-cdef:
-    string str = "你好，我是lzh"
-    string rs="lzh"
-    regex expression(rs)
+def find_key(string pattern,string str_):
 
-str = regex_replace(str,expression,string("zsx"))
-print(str)
+    return find_keyword(pattern,str_)
